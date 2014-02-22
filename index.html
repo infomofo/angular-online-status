@@ -6,15 +6,11 @@
 
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
-    <script type="text/javascript" src="http://rawgithub.com/infomofo/angular-online-status/master/angular-online-status.js"></script>
-    <script type="text/javascript" src="javascripts/myapp.js"></script>
 
     <title>Angular-online-status by infomofo</title>
   </head>
 
-  <body>
+  <body ng-app="myapp">
 
     <header>
       <div class="container">
@@ -24,11 +20,16 @@
     </header>
 
     <div class="container">
-      <section id="main_content">
-        <h1>
-<a name="angular-online-status" class="anchor" href="#angular-online-status"><span class="octicon octicon-link"></span></a>angular-online-status</h1>
+      <section id="main_content" ng-show="online">
+        <h1><span class="octicon octicon-globe"></span> You are Online</h1>
 
-<p>An angular directive module that sets a rootscope variable of <code>online</code> to either true or false depending on your current network status.</p>
+        <p>Right now angular-online-status believes you are online.  Disable your network connection and see if this page changes live.</p>
+      </section>
+      <section id="main_content" ng-show="!online">
+        <h1><span class="octicon octicon-zap"></span> You are Offline</h1>
+
+        <p>Right now angular-online-status believes you are offline.  Reenable your network connection and see if this page changes live.</p>
+      </section>
 
 <h3>
 <a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
@@ -38,5 +39,8 @@
     </div>
 
     
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+    <script type="text/javascript" src="http://rawgithub.com/infomofo/angular-online-status/master/angular-online-status.js"></script>
+    <script type="text/javascript" src="javascripts/main.js"></script>
   </body>
 </html>
